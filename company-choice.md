@@ -32,4 +32,4 @@ Pero siempre surgen las dudas sobre qué quiero comer hoy, qué me recomendaría
 * **Qué produciría:**
   * Generaría una vista de carta personalizada reducida con las mejores opciones para el cliente habiendo filtrado así lo innecesario o poco probable, acompañada de una recomendación destacada ("Sugerencia del día para ti").
   * El cliente seleccionaría los platos que quiera elegir y enviaría directamente los mismos al sistema de pedidos del restaurante.
-    * En caso de que el cliente no quiera hacerlo por su cuenta (por dificultad de manejo de los códigos QR o cualquier otra razón posible) existe la ayuda de los camareros quienes los acompañan en la selección).
+    * En caso de que el cliente no quiera hacerlo por su cuenta (por dificultad de manejo de los códigos QR o cualquier otra razón posible) existe la ayuda de los camareros quienes los acompañan en la selección.
