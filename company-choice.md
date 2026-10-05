@@ -20,7 +20,7 @@ El reto de IA que más ganas tengo de construir se trata de un motor de personal
 
 Muchas veces, en los restaurantes, ofrecen una carta muy amplia, lo cual, como idea inicial, es ideal. Más opciones es mejor; más entre lo que elegir.
 
-Pero siempre surgen las dudas sobre qué quiero comer hoy, qué me recomendarían, ¿pero y si no me gusta?, entonces, lo que en un inicio, con la idea de ofrecer más opciones o un intento de poder servir a más gente, se vuelve en un problema.
+Pero siempre surgen las dudas sobre qué quiero comer hoy, qué me recomendarían, ¿pero y si no me gusta?, entonces, lo que en un inicio, con la idea de ofrecer más opciones o un intento de poder servir a más gente, se veía como la mejor solución, se vuelve en un problema.
 
 * **Qué haría:**
   * Analizaría las preferencias del cliente a través de un test rápido o la opción de que el cliente rellene un campo de texto ofreciendo más razonamiento y libertad.
