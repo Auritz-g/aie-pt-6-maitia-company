@@ -27,9 +27,9 @@ Pero siempre surgen las dudas sobre qué quiero comer hoy, qué me recomendaría
   * *Cómo lo rellenaría*
     * El test o el campo a rellenar, se encontraría en la página web o en la app, a la cual se accedería mediante un código QR que se encuentra en la mesa. De esta forma, cliente habitual o no, tendrían acceso al mismo.
 * **Qué información necesitaría:**
-  * Requiere un acceso a la carta (de esto se encarga Brasaland a la hora de crear y configurarlo) y por otro lado, necesita que el cliente le dé suficientes datos sobre gustos, preferencias, alergias o intolerancias.
-  * Para clientes habituales, podría tener acceso al historial de pedidos para ver tendencias en pedidos y ofrecer recomendaciones nuevas o acorde a estas.
+  * Requiere un acceso a la carta (de esto se encarga Brasaland a la hora de crear y configurar el código QR) y por otro lado, necesita que el cliente le dé suficientes datos sobre gustos, preferencias, alergias o intolerancias.
+  * Para clientes habituales, podría tener acceso al historial de pedidos para ver tendencias en pedidos y ofrecer recomendaciones nuevas o acorde a estas (esto sería opcional para respetar la comodidad del cliente con que la IA tenga acceso a sus pedidos).
 * **Qué produciría:**
   * Generaría una vista de carta personalizada reducida con las mejores opciones para el cliente habiendo filtrado así lo innecesario o poco probable, acompañada de una recomendación destacada ("Sugerencia del día para ti").
-  * Ofrecería asimismo la opción de ampliar o reducir la carta con un test adicional
-  * Enviaría directamente los platos seleccionados al sistema de pedidos del restaurante.
+  * El cliente seleccionaría los platos que quiera elegir y enviaría directamente los mismos al sistema de pedidos del restaurante.
+    * En caso de que el cliente no quiera hacerlo por su cuenta (por dificultad de manejo de los códigos QR o cualquier otra razón posible, existe la ayuda de los camareros quienes los acompañan en la selección).
