@@ -8,6 +8,15 @@ Leer siempre estos tres archivos antes de empezar cualquier trabajo:
 - Tecnología: `memory-bank/techContext.md`
 - Progreso: `memory-bank/progress.md`
 
+## Instrucciones y skills obligatorias por interacción
+
+Al inicio de **cada interacción con el usuario**, antes de analizar o realizar la tarea solicitada:
+
+- Revisar el contenido y la estructura de `.agents/`, y leer sus reglas aplicables. Las reglas marcadas como siempre activas se deben cumplir en todas las tareas.
+- Revisar el contenido y la estructura de `skills/`, leer su README y consultar/leer las skills pertinentes para la solicitud. Aplicar las instrucciones de las skills que correspondan.
+- Repetir esta revisión en cada interacción; no asumir que una lectura realizada en una interacción anterior sigue vigente ni que el contexto previo sustituye la lectura.
+- Si una instrucción aplicable exige aprobación, aclaración o detenerse, respetar ese requisito antes de continuar.
+
 ## Comandos
 
 - No se han verificado comandos de ejecución o pruebas de producto configurados en la raíz.

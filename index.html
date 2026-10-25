@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Conoce Brasaland: desde 2008 compartiendo el sabor de la carne a la brasa en Colombia y Estados Unidos."
+    />
+    <title>Brasaland | El sabor de la brasa</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Brasaland",
+        "description": "Cadena de restaurantes de comida a la brasa en Colombia y Estados Unidos",
+        "url": "https://brasaland.com",
+        "foundingDate": "2008",
+        "servesCuisine": "Grilled food, Colombian cuisine",
+        "priceRange": "$$",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "addressCountry": "CO",
+            "addressLocality": "Medellín",
+            "addressRegion": "Antioquia"
+          },
+          {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Miami",
+            "addressRegion": "FL"
+          }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+57-4-123-4567",
+          "contactType": "customer service",
+          "availableLanguage": ["Spanish"]
+        },
+        "sameAs": [
+          "https://instagram.com/brasaland",
+          "https://facebook.com/brasaland"
+        ]
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-brand" href="#inicio" aria-label="Brasaland, ir al inicio">
+        <picture>
+          <source media="(min-width: 64rem)" srcset="./uis/visual/logo/Brasaland-hz.svg" />
+          <source media="(min-width: 40rem)" srcset="./uis/visual/logo/Brasaland-hz-sm.svg" />
+          <img src="./uis/visual/logo/Brasaland-logo-vis.svg" alt="" />
+        </picture>
+      </a>
+      <details class="site-menu">
+        <summary aria-label="Mostrar navegación principal">
+          <img src="./uis/visual/hamburger-menu.svg" alt="" />
+        </summary>
+        <nav aria-label="Navegación principal">
+          <ul class="site-navigation">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#ubicaciones">Ubicaciones</a></li>
+            <li><a href="./uis/website/menu/index.html">Menú</a></li>
+            <li><a href="#brasa-points">Brasa Points</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </details>
+      <nav class="desktop-navigation" aria-label="Navegación principal">
+        <ul class="site-navigation">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#ubicaciones">Ubicaciones</a></li>
+          <li><a href="./uis/website/menu/index.html">Menú</a></li>
+          <li><a href="#brasa-points">Brasa Points</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <h1 id="hero-title">El sabor de la brasa, en cada bocado</h1>
+          <p>Desde 2008 sirviendo las mejores carnes a la brasa en Colombia y Estados Unidos. 14 ubicaciones, una misma pasión por la calidad y el sabor.</p>
+          <a class="button" href="./application.html">Únete a Brasa Points</a>
+        </div>
+      </section>
+
+      <section class="story" aria-labelledby="story-title">
+        <img class="story-image" src="./uis/visual/image.png" alt="Mesa redonda en un restaurante elegante con copas de cristal boca abajo y servilletas de tela" />
+        <div class="story-content">
+          <h2 id="story-title">Nuestra Historia</h2>
+          <p>Fundada en Medellín en 2008, Brasaland comenzó como un sueño familiar: compartir el auténtico sabor de la carne a la brasa con calidad constante y servicio cálido. Hoy somos 14 restaurantes en dos países, pero mantenemos la misma receta de éxito: productos frescos, técnicas tradicionales, y pasión por cada plato que servimos.</p>
+        </div>
+      </section>
+
+      <section class="differentiators" aria-labelledby="differentiators-title">
+        <h2 id="differentiators-title">Lo que nos hace únicos</h2>
+        <div class="differentiator-list">
+          <article class="differentiator">
+            <h3>Calidad Consistente</h3>
+            <ul>
+              <li>Mismas recetas y estándares en todos los locales</li>
+              <li>Ingredientes frescos seleccionados diariamente</li>
+            </ul>
+          </article>
+          <article class="differentiator">
+            <h3>Experiencia Cálida</h3>
+            <ul>
+              <li>Servicio amable y atento</li>
+              <li>Ambiente familiar en cada visita</li>
+            </ul>
+          </article>
+          <article class="differentiator">
+            <h3>Rapidez</h3>
+            <ul>
+              <li>Tu comida lista en minutos</li>
+              <li>Sin sacrificar sabor ni calidad</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="locations" id="ubicaciones" aria-labelledby="locations-title">
+        <h2 id="locations-title">Nuestras Ubicaciones</h2>
+        <div class="location-list">
+          <article class="location">
+            <h3>Colombia</h3>
+            <p>10 restaurantes en Medellín, Bogotá y Cali</p>
+            <p>Horario: Lun-Dom 11:00 - 22:00</p>
+          </article>
+          <article class="location">
+            <h3>Estados Unidos (Florida)</h3>
+            <p>4 restaurantes en Miami y Orlando</p>
+            <p>Horario: Mon-Sun 11:00 AM - 10:00 PM</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="loyalty" id="brasa-points" aria-labelledby="loyalty-title">
+        <h2 id="loyalty-title">Brasa Points</h2>
+        <h3>Gana puntos con cada visita</h3>
+        <ul>
+          <li>Acumula 1 punto por cada $10.000 COP o $5 USD</li>
+          <li>Canjea tus puntos por descuentos y platos gratis</li>
+          <li>Ofertas exclusivas para miembros</li>
+          <li>Registro 100% digital - ¡ya no más tarjetas de papel!</li>
+        </ul>
+        <a class="button" href="./application.html">Únete a Brasa Points</a>
+      </section>
+
+      <aside class="ordering-notice" aria-label="Información sobre pedidos">
+        <p>¿Quieres hacer un pedido? Llama a tu ubicación favorita o visítanos directamente. ¡Pronto tendremos pedidos en línea!</p>
+      </aside>
+
+      <section class="contact" id="contacto" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contacto</h2>
+        <address>
+          <p>Email: <a href="mailto:hola@brasaland.com">hola@brasaland.com</a></p>
+          <p>Colombia: <a href="tel:+5741234567">+57 4 123 4567</a></p>
+          <p>Florida: <a href="tel:+13051234567">+1 305 123 4567</a></p>
+        </address>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Brasaland. Todos los derechos reservados.</p>
+      <ul class="social-links" aria-label="Redes sociales">
+        <li><a href="https://instagram.com/brasaland">Instagram</a></li>
+        <li><a href="https://facebook.com/brasaland">Facebook</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
