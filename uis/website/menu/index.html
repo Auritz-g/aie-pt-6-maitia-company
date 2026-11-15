@@ -1,19 +1,654 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Consulta la carta de Brasaland." />
-    <title>Menú | Brasaland</title>
-    <link rel="stylesheet" href="../../../styles.css" />
-  </head>
-  <body class="menu-page">
-    <header class="site-header">
-      <a class="menu-back-link" href="../../../index.html">Volver a Brasaland</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Brasaland - Sabor a la Brasa de Nuestra Tierra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat:wght@600&family=Oswald:wght@500;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #141312;
+      --gold-accent: #E5A93B;
+      --cream-text: #F4EFE6;
+      --gray-desc: #C8C4BC;
+      --border-subtle: #3A342D;
+      --brand-fire: #9b3f1f;
+      --brand-cream: #f4ead7;
+      --brand-ink: #29231c;
+      --brand-paper: #fffaf2;
+      --brand-muted: #63584d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: var(--cream-text);
+      font-family: 'Roboto Condensed', sans-serif;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* Navegación compartida con la página de inicio */
+    .site-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      min-height: 4.5rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background-color: var(--brand-cream);
+      color: var(--brand-ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site-brand {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      width: 5.5rem;
+      height: 2.75rem;
+      text-decoration: none;
+    }
+
+    .site-brand picture,
+    .site-brand img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .site-brand img {
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(25%) sepia(36%) saturate(1527%) hue-rotate(341deg) brightness(94%) contrast(91%);
+    }
+
+    .site-menu {
+      position: relative;
+    }
+
+    .site-menu summary {
+      display: grid;
+      width: 2.875rem;
+      height: 2.875rem;
+      place-items: center;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .site-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .site-menu summary::marker {
+      content: "";
+    }
+
+    .site-menu summary img {
+      display: block;
+      width: 1.6875rem;
+      height: auto;
+      filter: brightness(0) saturate(100%) invert(25%) sepia(36%) saturate(1527%) hue-rotate(341deg) brightness(94%) contrast(91%);
+    }
+
+    .site-menu[open] nav {
+      position: absolute;
+      z-index: 3;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      width: min(17rem, calc(100vw - 2.5rem));
+      padding: 0.75rem 1rem;
+      border: 1px solid #d8c7b2;
+      border-radius: 0.5rem;
+      background: var(--brand-paper);
+      box-shadow: 0 0.5rem 1.25rem rgb(41 35 28 / 16%);
+    }
+
+    .site-navigation,
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .site-navigation {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .site-navigation a {
+      display: inline-block;
+      width: 100%;
+      padding: 0.35rem 0;
+      color: var(--brand-fire);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .site-navigation a:hover {
+      color: #702b16;
+      text-decoration: underline;
+    }
+
+    .desktop-navigation {
+      display: none;
+    }
+
+    .site-header :is(a, summary):focus-visible,
+    .site-footer a:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 5px var(--brand-ink);
+    }
+
+    .menu-container {
+      width: 100%;
+      max-width: 1000px;
+      margin-inline: auto;
+      background-color: var(--bg-dark);
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 20px 20px;
+      border: 1px solid #2a2622;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .menu-header {
+      text-align: center;
+      padding: 45px 25px 35px;
+      background: linear-gradient(to bottom, rgba(20, 19, 18, 0.55), var(--bg-dark)),
+                  radial-gradient(circle at 80% 30%, rgba(229, 115, 36, 0.25), transparent 60%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .brand-title {
+      font-family: 'Alfa Slab One', serif;
+      font-size: 4.2rem;
+      letter-spacing: 3px;
+      color: var(--cream-text);
+      text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.9);
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-family: 'Caveat', cursive;
+      font-size: 1.9rem;
+      color: var(--gold-accent);
+      margin-top: 6px;
+    }
+
+    .brand-intro {
+      max-width: 580px;
+      margin: 14px auto 0;
+      font-size: 0.95rem;
+      color: var(--gray-desc);
+      line-height: 1.4;
+    }
+
+    /* GRID DE 2 COLUMNAS */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      padding: 30px 35px;
+      gap: 35px;
+    }
+
+    .col-left {
+      border-right: 1px solid var(--border-subtle);
+      padding-right: 35px;
+    }
+
+    /* SECCIONES */
+    .menu-section {
+      margin-bottom: 30px;
+    }
+
+    .menu-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      color: var(--gold-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      color: var(--cream-text);
+      font-weight: 400;
+      font-size: 1.15rem;
+    }
+
+    .subsection-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      color: var(--gold-accent);
+      margin: 16px 0 10px;
+      letter-spacing: 0.3px;
+    }
+
+    .subsection-title em {
+      color: var(--gray-desc);
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    /* ITEMS CON DESCRIPCIÓN */
+    .menu-item {
+      margin-bottom: 15px;
+    }
+
+    .item-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--cream-text);
+    }
+
+    .item-desc {
+      font-size: 0.92rem;
+      color: var(--gray-desc);
+      line-height: 1.38;
+      margin-top: 3px;
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--gray-desc);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    /* TABLA POLLO A LA BRASA */
+    .chicken-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .chicken-table th {
+      text-align: left;
+      color: var(--gold-accent);
+      background-color: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 10px;
+    }
+
+    .chicken-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #26221e;
+      color: var(--gray-desc);
+      vertical-align: top;
+      line-height: 1.3;
+    }
+
+    .chicken-table td:first-child {
+      color: var(--cream-text);
+      font-weight: bold;
+    }
+
+    .chicken-table td:first-child small {
+      font-weight: normal;
+      color: var(--gray-desc);
+    }
+
+    /* LISTAS CON VIÑETAS */
+    .bullet-list {
+      list-style: none;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 8px;
+      font-size: 0.93rem;
+      color: var(--gray-desc);
+      line-height: 1.35;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--gold-accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .bullet-list strong {
+      color: var(--cream-text);
+    }
+
+    /* LISTA NUMERADA (POSTRES) */
+    .ordered-list {
+      list-style: none;
+      counter-reset: dessert-counter;
+    }
+
+    .ordered-list li {
+      counter-increment: dessert-counter;
+      margin-bottom: 14px;
+    }
+
+    .ordered-list .item-name::before {
+      content: counter(dessert-counter) ". ";
+      color: var(--gold-accent);
+    }
+
+    /* Footer compartido con la página de inicio */
+    .site-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem 1.25rem;
+      background-color: var(--brand-ink);
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .site-footer a {
+      color: #fff;
+      text-underline-offset: 0.18em;
+    }
+
+    .site-footer a:hover {
+      color: #f9d5ad;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+        padding: 25px 20px;
+        gap: 25px;
+      }
+      .col-left {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 25px;
+      }
+      .brand-title {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (min-width: 40rem) {
+      .site-header {
+        padding-inline: 2rem;
+      }
+
+      .site-menu {
+        display: none;
+      }
+
+      .desktop-navigation {
+        display: block;
+      }
+
+      .site-navigation {
+        flex-direction: row;
+        gap: 0.35rem 1rem;
+      }
+
+      .site-navigation a {
+        width: auto;
+        padding: 0.35rem 0;
+      }
+
+      .site-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-brand" href="../../../index.html#inicio" aria-label="Brasaland, ir al inicio">
+      <picture>
+        <source media="(min-width: 64rem)" srcset="../../../uis/visual/logo/Brasaland-hz.svg">
+        <source media="(min-width: 40rem)" srcset="../../../uis/visual/logo/Brasaland-hz-sm.svg">
+        <img src="../../../uis/visual/logo/Brasaland-logo-vis.svg" alt="">
+      </picture>
+    </a>
+    <details class="site-menu">
+      <summary aria-label="Mostrar navegación principal">
+        <img src="../../../uis/visual/hamburger-menu.svg" alt="">
+      </summary>
+      <nav aria-label="Navegación principal">
+        <ul class="site-navigation">
+          <li><a href="../../../index.html#inicio">Inicio</a></li>
+          <li><a href="../../../index.html#ubicaciones">Ubicaciones</a></li>
+          <li><a href="#menu" aria-current="page">Menú</a></li>
+          <li><a href="../../../index.html#brasa-points">Brasa Points</a></li>
+          <li><a href="../../../index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </details>
+    <nav class="desktop-navigation" aria-label="Navegación principal">
+      <ul class="site-navigation">
+        <li><a href="../../../index.html#inicio">Inicio</a></li>
+        <li><a href="../../../index.html#ubicaciones">Ubicaciones</a></li>
+        <li><a href="#menu" aria-current="page">Menú</a></li>
+        <li><a href="../../../index.html#brasa-points">Brasa Points</a></li>
+        <li><a href="../../../index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="menu-container">
+    <!-- ENCABEZADO -->
+    <header class="menu-header">
+      <h1 class="brand-title">BRASALAND</h1>
+      <p class="brand-tagline"><em>Sabor a la Brasa de Nuestra Tierra</em></p>
+      <p class="brand-intro">Welcome to the official menu repository for Brasaland, an authentic Colombian charcoal-grill restaurant chain operating in Colombia and the USA.</p>
     </header>
-    <main class="restaurant-menu">
-      <h1>Menú de Brasaland</h1>
-      <img class="menu-image" src="./menu.png" alt="Carta del restaurante Brasaland" />
+
+    <!-- CONTENIDO PRINCIPAL EN 2 COLUMNAS -->
+    <main class="menu-grid" id="menu">
+      
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="col-left">
+        
+        <!-- ENTRADAS -->
+        <section class="menu-section">
+          <h2 class="section-title">🥟 ENTRADAS <span>/ APPETIZERS</span></h2>
+          
+          <article class="menu-item">
+            <h3 class="item-name">Empanaditas de la Casa (4 units)</h3>
+            <p class="item-desc">Crispy cornmeal pastries filled with shredded beef or charcoal-grilled chicken. Served with homemade ají (spicy salsa) and guacamole.</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Chorizo Santarrosano a la Brasa</h3>
+            <p class="item-desc">Grilled Colombian chorizo sausage served with warm sweet corn cake (<em>arepa de choclo</em>), melted farmer's cheese, and lime.</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Chicharroncito Crocante</h3>
+            <p class="item-desc">Crispy pork belly strips cooked over charcoal, served with green plantain chips (<em>patacones</em>) and <em>suero costeño</em> (Colombian sour cream).</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Arepitas con Todo</h3>
+            <p class="item-desc">Trio of mini white corn cakes topped with charcoal-grilled chicken, shredded beef, and <em>queso costeño</em>.</p>
+          </article>
+        </section>
+
+        <!-- POLLO A LA BRASA -->
+        <section class="menu-section">
+          <h2 class="section-title">🍗 POLLO A LA BRASA <span>/ CHARCOAL-GRILLED CHICKEN</span></h2>
+          <p class="section-subtitle">Seasoned with our traditional blend of spices and slow-roasted over natural charcoal.</p>
+          
+          <table class="chicken-table">
+            <thead>
+              <tr>
+                <th scope="col">Option</th>
+                <th scope="col">Description</th>
+                <th scope="col">Sides Included</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pollo Entero<br><small>(Whole Chicken)</small></td>
+                <td>Full charcoal-grilled chicken</td>
+                <td>2 Large Sides + 4 Arepas + Ají</td>
+              </tr>
+              <tr>
+                <td>Medio Pollo<br><small>(Half Chicken)</small></td>
+                <td>Half chicken (breast/wing &amp; leg/thigh)</td>
+                <td>2 Regular Sides + 2 Arepas + Ají</td>
+              </tr>
+              <tr>
+                <td>Un Cuarto<br><small>(Quarter Chicken)</small></td>
+                <td>Choice of White or Dark meat</td>
+                <td>2 Regular Sides + 1 Arepa + Ají</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- CORTES A LA BRASA -->
+        <section class="menu-section">
+          <h2 class="section-title">🥩 CORTES A LA BRASA <span>/ GRILL &amp; STEAKS</span></h2>
+          
+          <article class="menu-item">
+            <h3 class="item-name">Punta de Anca / Picanha a la Brasa (300g / 10oz)</h3>
+            <p class="item-desc">Juicy top sirloin cap grilled to perfection and topped with house-made chimichurri.</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Lomo al Trapo Tradicional (300g / 10oz)</h3>
+            <p class="item-desc">Tender beef tenderloin wrapped in sea salt and herbs, cooked directly over glowing embers.</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Costillas de Cerdo en BBQ de Panela</h3>
+            <p class="item-desc">Smoked pork ribs glazed with our signature sugar-cane (<em>panela</em>) and passionfruit BBQ sauce.</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Parrillada Brasaland (To Share / 2–3 Persons)</h3>
+            <p class="item-desc">A feast featuring sirloin steak, grilled chicken breast, <em>chorizo</em>, <em>chicharrón</em>, blood sausage (<em>morcilla</em>), <em>patacones</em>, golden potatoes (<em>papa criolla</em>), and small <em>arepas</em>.</p>
+          </article>
+        </section>
+
+      </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="col-right">
+        
+        <!-- MENÚS LIGEROS & BOWLS -->
+        <section class="menu-section">
+          <h2 class="section-title">🥗 MENÚS LIGEROS &amp; BOWLS <span>/ BOWLS &amp; SALADS</span></h2>
+          
+          <article class="menu-item">
+            <h3 class="item-name">Brasa Bowl</h3>
+            <p class="item-desc">Coconut rice or white rice base, beans, grilled chicken or shredded beef, sweet plantains, corn, pico de gallo, and fresh avocado.</p>
+          </article>
+
+          <article class="menu-item">
+            <h3 class="item-name">Ensalada del Campo a la Brasa</h3>
+            <p class="item-desc">Mixed greens, grilled chicken breast, fresh cheese, sweet corn, cherry tomatoes, plantain strips, and passionfruit vinaigrette.</p>
+          </article>
+        </section>
+
+        <!-- ACOMPAÑAMIENTOS -->
+        <section class="menu-section">
+          <h2 class="section-title">🍟 ACOMPAÑAMIENTOS <span>/ SIDES</span></h2>
+          <ul class="bullet-list">
+            <li><strong>Papas Criollas Fritas</strong> <em>(Golden fried yellow potatoes)</em></li>
+            <li><strong>Yuca Frita o al Vapor</strong> <em>(Fried or steamed cassava with garlic mojo)</em></li>
+            <li><strong>Patacones con Hogao</strong> <em>(Fried green plantains with tomato-onion sauce)</em></li>
+            <li><strong>Arroz con Coco / Arroz Blanco</strong> <em>(Coconut rice or white rice)</em></li>
+            <li><strong>Frijoles Antioqueños</strong> <em>(Traditional Colombian red beans)</em></li>
+            <li><strong>Plátano Maduro con Queso y Bocadillo</strong> <em>(Sweet plantain with cheese and guava paste)</em></li>
+            <li><strong>Ensalada de la Casa</strong> <em>(Cabbage and carrot slaw with sweet dressing)</em></li>
+          </ul>
+        </section>
+
+        <!-- POSTRES -->
+        <section class="menu-section">
+          <h2 class="section-title">🍮 POSTRES <span>/ DESSERTS</span></h2>
+          <ol class="ordered-list">
+            <li>
+              <h3 class="item-name">Aborrajado Valluno</h3>
+              <p class="item-desc">Sweet ripe plantain stuffed with cheese and guava paste (<em>bocadillo</em>), battered and fried.</p>
+            </li>
+            <li>
+              <h3 class="item-name">Tres Leches de Maracuyá</h3>
+              <p class="item-desc">Sponge cake soaked in three milks infused with tangy passionfruit.</p>
+            </li>
+            <li>
+              <h3 class="item-name">Flan de Coco Artesanal</h3>
+              <p class="item-desc">Creamy coconut custard topped with sugar-cane caramel.</p>
+            </li>
+          </ol>
+        </section>
+
+        <!-- BEBIDAS -->
+        <section class="menu-section">
+          <h2 class="section-title">🍹 BEBIDAS <span>/ DRINKS</span></h2>
+          
+          <h3 class="subsection-title">Fresh Natural Juices <em>(Water or Milk base)</em></h3>
+          <ul class="bullet-list">
+            <li>Lulo <em>(Naranjilla)</em></li>
+            <li>Maracuyá <em>(Passionfruit)</em></li>
+            <li>Mango</li>
+            <li>Mora <em>(Blackberry)</em></li>
+          </ul>
+
+          <h3 class="subsection-title">Traditional Drinks</h3>
+          <ul class="bullet-list">
+            <li><strong>Limonada de Coco</strong> <em>(Creamy coconut lemonade)</em></li>
+            <li><strong>Refajo Brasaland</strong> <em>(Traditional mixture of Colombian soda &amp; beer)</em></li>
+            <li><strong>Agua de Panela con Limón</strong> <em>(Cold sugar-cane juice with lime)</em></li>
+            <li><strong>Sodas</strong> <em>(Colombiana, Postobón, Coca-Cola)</em></li>
+          </ul>
+        </section>
+
+      </div>
+
     </main>
-  </body>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 Brasaland. Todos los derechos reservados.</p>
+    <ul class="social-links" aria-label="Redes sociales">
+      <li><a href="https://instagram.com/brasaland">Instagram</a></li>
+      <li><a href="https://facebook.com/brasaland">Facebook</a></li>
+    </ul>
+  </footer>
+
+</body>
 </html>
